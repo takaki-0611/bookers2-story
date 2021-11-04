@@ -13,7 +13,7 @@ class User < ApplicationRecord
   attachment :profile_image, destroy: false
 
   def follow(user_id)
-    self.followers.find_or_create_by!(followed_id: user_id)
+    self.followers.find_or_create_by(followed_id: user_id)
   end
 
   def unfollow(user_id)
