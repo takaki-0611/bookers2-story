@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(version: 2021_10_26_072352) do
     t.text "comment"
     t.integer "user_id"
     t.integer "book_id"
-    t.float "rate", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -27,6 +26,7 @@ ActiveRecord::Schema.define(version: 2021_10_26_072352) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "rate", null: false
   end
 
   create_table "favorites", force: :cascade do |t|
