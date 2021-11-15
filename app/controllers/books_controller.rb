@@ -11,6 +11,7 @@ class BooksController < ApplicationController
   def index
     @book = Book.new
     @books = Book.all
+    
   end
 
   def create
@@ -55,5 +56,10 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :image, :body, :rate)
   end
+  
+  private
+    def sort_params
+      params.permit(:sort)
+    end
 
 end
