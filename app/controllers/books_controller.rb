@@ -10,8 +10,12 @@ class BooksController < ApplicationController
 
   def index
     @book = Book.new
-    @books = Book.all
-    
+    if sort_params.present?
+      @books = Book.sort_books(sort_params)
+    else
+      @books = Book.all
+    end
+    @sort_list = Book.sort_list
   end
 
   def create
@@ -56,7 +60,7 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :image, :body, :rate)
   end
-  
+
   private
     def sort_params
       params.permit(:sort)

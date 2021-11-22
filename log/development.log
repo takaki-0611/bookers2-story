@@ -31965,3 +31965,84 @@ Processing by BooksController#show as HTML
 Completed 200 OK in 136ms (Views: 127.9ms | ActiveRecord: 1.3ms)
 
 
+Started GET "/" for 126.216.88.223 at 2021-11-22 14:04:03 +0000
+Cannot render console from 126.216.88.223! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Processing by HomesController#top as HTML
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (1.5ms)
+Started GET "/" for 126.216.88.223 at 2021-11-22 14:04:04 +0000
+Cannot render console from 126.216.88.223! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomesController#top as HTML
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (3.3ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 790ms (Views: 780.7ms | ActiveRecord: 0.0ms)
+
+
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 149ms (Views: 148.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 126.216.88.223 at 2021-11-22 14:04:08 +0000
+Cannot render console from 126.216.88.223! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (28.5ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 149ms (Views: 136.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/sign_in" for 126.216.88.223 at 2021-11-22 14:04:10 +0000
+Cannot render console from 126.216.88.223! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (7.3ms)
+  Rendered layouts/_header.html.erb (17.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 191ms (Views: 189.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 126.216.88.223 at 2021-11-22 14:04:16 +0000
+Cannot render console from 126.216.88.223! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k_N3L5rXm6gVj_gqmu7dNt2Nk02mqtsycJP4EFhM_cdddGUOYdS_UV68zBcY04KW-mW7ObCrv9ED4eXbCOnvUw", "user"=>{"name"=>"11", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["name", "11"], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Redirected to https://591a113d33b24446aa5fde6857309e52.vfs.cloud9.us-east-1.amazonaws.com/users/1
+Completed 302 Found in 394ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1" for 126.216.88.223 at 2021-11-22 14:04:16 +0000
+Cannot render console from 126.216.88.223! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.4ms)
+
+
+  
+SyntaxError (/home/ec2-user/environment/bookers2/app/models/book.rb:27: syntax error, unexpected tSTRING_BEG, expecting '}'
+      "作成の新しい順" => "up...
+      ^
+/home/ec2-user/environment/bookers2/app/models/book.rb:27: syntax error, unexpected =>, expecting '}'
+...     "作成の新しい順" => "updated_at DESC" }
+...                             ^~
+/home/ec2-user/environment/bookers2/app/models/book.rb:28: syntax error, unexpected '}', expecting end
+    }
+    ^):
+  
+app/models/book.rb:27: syntax error, unexpected tSTRING_BEG, expecting '}'
+app/models/book.rb:27: syntax error, unexpected =>, expecting '}'
+app/models/book.rb:28: syntax error, unexpected '}', expecting end
+app/controllers/users_controller.rb:6:in `show'
