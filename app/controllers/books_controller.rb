@@ -10,12 +10,10 @@ class BooksController < ApplicationController
 
   def index
     @book = Book.new
-    if sort_params.present?
-      @books = Book.sort_books(sort_params)
-    else
-      @books = Book.all
-    end
-    @sort_list = Book.sort_list
+    @books = Book.all
+    @book= Question.left_outer_joins(:likes).group('questions.id')
+    .select('questions.*, COUNT(likes.*) AS likes_count').distinct
+    .reorder(likes_count: :desc).limit(100)
   end
 
   def create

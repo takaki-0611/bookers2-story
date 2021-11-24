@@ -19,11 +19,5 @@ class Book < ApplicationRecord
         order("updated_at DESC")
       end
     end
-    scope :sort_books, -> (sort) { order(sort[:sort]) }
-    scope :sort_list, -> {
-    {
-      "並び替え" => "",
-      "作成の古い順" => "updated_at ASC"
-      "作成の新しい順" => "updated_at DESC" }
-    }
+  scope :sort_books, -> (sort) { order(sort[:sort]) }
 end
