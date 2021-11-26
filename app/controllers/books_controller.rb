@@ -10,6 +10,7 @@ class BooksController < ApplicationController
 
   def index
     @book = Book.new
+    @any_book = Book.find(params[:id])
     @books = Book.all
     @book= Question.left_outer_joins(:likes).group('questions.id')
     .select('questions.*, COUNT(likes.*) AS likes_count').distinct
