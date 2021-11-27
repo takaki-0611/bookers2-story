@@ -32046,3 +32046,194 @@ app/models/book.rb:27: syntax error, unexpected tSTRING_BEG, expecting '}'
 app/models/book.rb:27: syntax error, unexpected =>, expecting '}'
 app/models/book.rb:28: syntax error, unexpected '}', expecting end
 app/controllers/users_controller.rb:6:in `show'
+Started GET "/" for 126.216.88.223 at 2021-11-27 13:40:08 +0000
+Cannot render console from 126.216.88.223! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Processing by HomesController#top as HTML
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_header.html.erb (4.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 795ms (Views: 782.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 126.216.88.223 at 2021-11-27 13:40:09 +0000
+Cannot render console from 126.216.88.223! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomesController#top as HTML
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 113ms (Views: 111.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 126.216.88.223 at 2021-11-27 13:40:12 +0000
+Cannot render console from 126.216.88.223! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (28.6ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 144ms (Views: 132.1ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users/sign_in" for 126.216.88.223 at 2021-11-27 13:40:19 +0000
+Cannot render console from 126.216.88.223! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xw0d3L3tWqX0l-aW6FyLBsqrCbO1Hi5E1X3XnP_XrO4GPYWc8HSqD2E5o08WgEN0tL0NAfChmHWjh8xvHnqAAA", "user"=>{"name"=>"11", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["name", "11"], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Redirected to https://591a113d33b24446aa5fde6857309e52.vfs.cloud9.us-east-1.amazonaws.com/users/1
+Completed 302 Found in 338ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 126.216.88.223 at 2021-11-27 13:40:19 +0000
+Cannot render console from 126.216.88.223! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/views/users/_info.html.erb:14
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/views/users/_info.html.erb:20
+  Rendered users/_info.html.erb (26.5ms)
+  Rendered books/_form.html.erb (9.5ms)
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:21
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/book.rb:7
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/views/favorites/_favorite.html.erb:10
+  Rendered favorites/_favorite.html.erb (12.0ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/views/users/show.html.erb:32
+  Rendered users/show.html.erb within layouts/application (73.7ms)
+  Rendered layouts/_header.html.erb (3.0ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 268ms (Views: 228.5ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/books/1/favorites" for 126.216.88.223 at 2021-11-27 13:40:23 +0000
+Cannot render console from 126.216.88.223! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FavoritesController#create as JS
+  Parameters: {"book_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/favorites_controller.rb:3
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/favorites_controller.rb:5
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/favorites_controller.rb:5
+  [1m[36mFavorite Create (3.1ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["book_id", 1], ["created_at", "2021-11-27 13:40:23.488772"], ["updated_at", "2021-11-27 13:40:23.488772"]]
+  ↳ app/controllers/favorites_controller.rb:5
+  [1m[35m (8.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/favorites_controller.rb:5
+  Rendering favorites/create.js.erb
+  [1m[36mFavorite Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/book.rb:7
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/views/favorites/_favorite.html.erb:4
+  Rendered favorites/_favorite.html.erb (5.6ms)
+  Rendered favorites/create.js.erb (9.5ms)
+Completed 200 OK in 51ms (Views: 16.2ms | ActiveRecord: 12.3ms)
+
+
+Started GET "/books" for 126.216.88.223 at 2021-11-27 13:40:25 +0000
+Cannot render console from 126.216.88.223! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Completed 404 Not Found in 4ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Book without an ID):
+  
+app/controllers/books_controller.rb:13:in `index'
+Started GET "/books" for 126.216.88.223 at 2021-11-27 13:40:55 +0000
+Cannot render console from 126.216.88.223! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Completed 404 Not Found in 4ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Book without an ID):
+  
+app/controllers/books_controller.rb:13:in `index'
+Started GET "/books" for 126.216.88.223 at 2021-11-27 13:43:26 +0000
+Cannot render console from 126.216.88.223! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 1.2ms)
+
+
+  
+NameError (uninitialized constant BooksController::Question):
+  
+app/controllers/books_controller.rb:14:in `index'
+Started GET "/books" for 126.216.88.223 at 2021-11-27 13:44:00 +0000
+Cannot render console from 126.216.88.223! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 1.3ms)
+
+
+  
+SyntaxError (/home/ec2-user/environment/bookers2/app/views/books/index.html.erb:72: syntax error, unexpected end-of-input, expecting end):
+  
+app/views/books/index.html.erb:72: syntax error, unexpected end-of-input, expecting end
+Started GET "/books" for 126.216.88.223 at 2021-11-27 13:45:00 +0000
+Cannot render console from 126.216.88.223! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Completed 404 Not Found in 23ms (ActiveRecord: 1.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Book without an ID):
+  
+app/controllers/books_controller.rb:14:in `index'
+Started GET "/books" for 126.216.88.223 at 2021-11-27 13:47:12 +0000
+Cannot render console from 126.216.88.223! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (4.0ms)
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 1.3ms)
+
+
+  
+SyntaxError (/home/ec2-user/environment/bookers2/app/views/books/index.html.erb:72: syntax error, unexpected end-of-input, expecting end):
+  
+app/views/books/index.html.erb:72: syntax error, unexpected end-of-input, expecting end
+Started GET "/books" for 126.216.88.223 at 2021-11-27 13:49:03 +0000
+Cannot render console from 126.216.88.223! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 1.3ms)
+
+
+  
+SyntaxError (/home/ec2-user/environment/bookers2/app/views/books/index.html.erb:72: syntax error, unexpected end-of-input, expecting end):
+  
+app/views/books/index.html.erb:72: syntax error, unexpected end-of-input, expecting end

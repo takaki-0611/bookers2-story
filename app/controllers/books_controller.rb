@@ -10,11 +10,7 @@ class BooksController < ApplicationController
 
   def index
     @book = Book.new
-    @any_book = Book.find(params[:id])
     @books = Book.all
-    @book= Question.left_outer_joins(:likes).group('questions.id')
-    .select('questions.*, COUNT(likes.*) AS likes_count').distinct
-    .reorder(likes_count: :desc).limit(100)
   end
 
   def create
@@ -54,15 +50,19 @@ class BooksController < ApplicationController
     end
   end
 
+  def search
+    selection = params[:keyword]
+    @books = Book.sort(selection)
+  end
+
   private
 
   def book_params
     params.require(:book).permit(:title, :image, :body, :rate)
   end
 
-  private
-    def sort_params
-      params.permit(:sort)
-    end
+  def sort_params
+    params.permit(:sort)
+  end
 
 end

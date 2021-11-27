@@ -20,4 +20,16 @@ class Book < ApplicationRecord
       end
     end
   scope :sort_books, -> (sort) { order(sort[:sort]) }
+  def self.sort(selection)
+    case selection
+    when 'new'
+      return all.order(created_at: :DESC)
+    when 'old'
+      return all.order(created_at: :ASC)
+    when 'likes'
+      return find(Favorite.group(:book_id).order(Arel.sql('count(book_id) desc')).pluck(:book_id))
+    when 'dislikes'
+      return find(Favorite.group(:book_id).order(Arel.sql('count(book_id) asc')).pluck(:book_id))
+    end
+  end
 end
