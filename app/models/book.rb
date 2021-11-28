@@ -32,4 +32,10 @@ class Book < ApplicationRecord
       return find(Favorite.group(:book_id).order(Arel.sql('count(book_id) asc')).pluck(:book_id))
     end
   end
+  def self.order_by_favorites_count(order)
+    select("*, COUNT(*) AS favorites_count")
+    .left_joins(:likes)
+    .group("book.id")
+    .order(:favorites_count => order)
+  end
 end
